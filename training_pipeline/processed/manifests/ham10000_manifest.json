@@ -1,0 +1,12 @@
+{
+  "dataset": "HAM10000",
+  "source": "Harvard Dataverse / ISIC Archive / HuggingFace",
+  "license": "CC-BY-NC-4.0",
+  "total_images": 7818,
+  "categories": {
+    "melanoma": 1113,
+    "melanocytic_nevi": 6705
+  },
+  "local_path": "training_pipeline/data/real_clinical/ham10000",
+  "status": "verified_and_extracted"
+}

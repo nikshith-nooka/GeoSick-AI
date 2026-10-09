@@ -1,0 +1,16 @@
+{
+  "base_model_name_or_path": "BioMistral/BioMistral-7B",
+  "lora_alpha": 32,
+  "lora_dropout": 0.05,
+  "r": 16,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "peft_type": "LORA"
+}

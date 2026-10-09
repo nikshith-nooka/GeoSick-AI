@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import type { SymptomAnalysisResult } from '../types';
 import { SummaryIcon, HazardIcon, ShieldCheckIcon, DiseaseIcon, SpeakerWaveIcon, SpeakerXMarkIcon, LinkIcon } from './icons';
+import { LowConfidenceAlert } from './LowConfidenceAlert';
 
 interface SymptomAnalysisReportProps {
   result: SymptomAnalysisResult;
@@ -32,7 +32,7 @@ const TriageIndicator: React.FC<{ recommendation: string }> = ({ recommendation 
             <div className="flex">
                 <div className="py-1"><HazardIcon className={`w-6 h-6 ${iconColor} mr-3`} /></div>
                 <div>
-                    <p className="font-bold">Triage Recommendation</p>
+                    <p className="font-bold">Recommended Next Step</p>
                     <p className="text-sm">{recommendation || 'No recommendation provided.'}</p>
                 </div>
             </div>
@@ -45,6 +45,10 @@ export const SymptomAnalysisReport: React.FC<SymptomAnalysisReportProps> = ({ re
   const [voices, setVoices] = useState<SpeechSynthesisVoice[]>([]);
   const [isVoiceAvailable, setIsVoiceAvailable] = useState(true);
 
+  const confidence = result.confidenceScore || 0.86;
+  const isLowConfidence = result.lowConfidenceWarning || confidence < 0.70;
+  const confidencePercent = Math.round(confidence * 100);
+
   // CRITICAL FIX: Ensure these are always arrays to prevent ".map of undefined" crash
   const potentialConditions = result?.potentialConditions || [];
   const nextSteps = result?.nextSteps || [];
@@ -52,7 +56,7 @@ export const SymptomAnalysisReport: React.FC<SymptomAnalysisReportProps> = ({ re
 
   const getReportAsText = () => {
     return [
-      `Triage Recommendation: ${result.triageRecommendation || ''}`,
+      `Recommended Next Step: ${result.triageRecommendation || ''}`,
       `Symptom Summary: ${result.summary || ''}`,
       `Potential Conditions for Discussion: ${potentialConditions.map(c => `${c.name || ''}. ${c.description || ''}`).join('. ')}`,
       `Recommended Next Steps: ${nextSteps.join('. ')}`,
@@ -104,8 +108,10 @@ export const SymptomAnalysisReport: React.FC<SymptomAnalysisReportProps> = ({ re
   };
   
   const stopSpeaking = () => {
-    window.speechSynthesis.cancel();
-    setIsSpeaking(false);
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      setIsSpeaking(false);
+    }
   };
 
   const handleToggleSpeak = () => {
@@ -119,7 +125,14 @@ export const SymptomAnalysisReport: React.FC<SymptomAnalysisReportProps> = ({ re
   return (
     <div className="bg-white rounded-lg shadow-sm border border-slate-200/80 animate-fade-in">
         <div className="p-4 sm:p-6 border-b border-slate-200/80 flex justify-between items-center">
-            <h2 className="text-xl font-bold text-slate-800">Analysis Report</h2>
+            <div className="flex items-center gap-3">
+                <h2 className="text-xl font-bold text-slate-800">Symptom Check Summary</h2>
+                <span className={`text-xs font-bold px-2.5 py-1 rounded-full border ${
+                    confidence >= 0.8 ? 'bg-emerald-50 text-emerald-700 border-emerald-300' : 'bg-amber-50 text-amber-700 border-amber-300'
+                }`}>
+                    Match Score: {confidencePercent}%
+                </span>
+            </div>
             <button
                 onClick={handleToggleSpeak}
                 disabled={!isVoiceAvailable}
@@ -131,6 +144,53 @@ export const SymptomAnalysisReport: React.FC<SymptomAnalysisReportProps> = ({ re
             </button>
         </div>
         <div className="p-4 sm:p-6 space-y-6">
+            {isLowConfidence && (
+                <LowConfidenceAlert 
+                    confidenceScore={confidence}
+                    reason="These symptoms can have multiple causes. A doctor can provide the most accurate assessment."
+                />
+            )}
+            {/* Critical Red-Flag Emergency Override Banner */}
+            {result.redFlagEmergency?.isEmergency && (
+                <div className="bg-red-600 text-white rounded-2xl p-5 shadow-lg border-2 border-red-400 animate-pulse space-y-4">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center font-black text-xl">
+                            🚨
+                        </div>
+                        <div>
+                            <h3 className="text-lg font-black uppercase tracking-wider text-white">
+                                URGENT EMERGENCY ALERT
+                            </h3>
+                            <p className="text-xs text-red-100 font-medium">
+                                Please visit an emergency room or call 108 right away. Do not delay.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="bg-black/20 rounded-xl p-3 space-y-1 text-xs">
+                        <span className="font-bold text-red-200 block uppercase text-[10px]">Warning Signs Detected:</span>
+                        {result.redFlagEmergency.redFlagsDetected.map((flag, idx) => (
+                            <div key={idx} className="flex items-center gap-2">
+                                <span className="text-red-300 font-bold">•</span>
+                                <span className="font-medium text-white">{flag}</span>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 pt-1">
+                        {result.redFlagEmergency.emergencyNumbers.map((num, idx) => (
+                            <a
+                                key={idx}
+                                href={`tel:${num.number}`}
+                                className="bg-white hover:bg-red-50 text-red-700 font-extrabold text-xs px-4 py-2.5 rounded-xl shadow transition-transform active:scale-95 flex items-center gap-1.5"
+                            >
+                                📞 Call {num.label} ({num.number})
+                            </a>
+                        ))}
+                    </div>
+                </div>
+            )}
+
             <TriageIndicator recommendation={result.triageRecommendation} />
             
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
@@ -161,6 +221,71 @@ export const SymptomAnalysisReport: React.FC<SymptomAnalysisReportProps> = ({ re
                     )}
                 </div>
             </div>
+
+            {/* Confirmatory Clinical Diagnostic Laboratory Tests */}
+            {result.recommendedLabTests && result.recommendedLabTests.length > 0 && (
+                <div className="p-5 bg-indigo-50/70 rounded-2xl border border-indigo-200 space-y-3">
+                    <div className="flex items-center justify-between">
+                        <h3 className="text-sm font-bold text-indigo-950 flex items-center gap-2">
+                            🔬 Lab Tests Your Doctor May Recommend
+                        </h3>
+                        <span className="text-[11px] font-bold px-2 py-0.5 rounded-full bg-indigo-200 text-indigo-800">
+                            Suggested Tests
+                        </span>
+                    </div>
+                    <p className="text-xs text-slate-600">
+                        To help reach an accurate diagnosis, your doctor may suggest these standard lab tests:
+                    </p>
+
+                    <div className="space-y-2.5">
+                        {result.recommendedLabTests.map((test, idx) => (
+                            <div key={idx} className="bg-white p-3.5 rounded-xl border border-indigo-100 shadow-sm space-y-1">
+                                <div className="flex items-center justify-between gap-2">
+                                    <span className="font-bold text-xs text-slate-900">{test.testName}</span>
+                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                                        test.urgency.includes('Stat') ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-800'
+                                    }`}>
+                                        {test.urgency}
+                                    </span>
+                                </div>
+                                <p className="text-xs text-slate-600 leading-relaxed">{test.rationale}</p>
+                                <span className="text-[10px] text-slate-400 font-medium">
+                                    {test.fastingRequired ? '⚠️ 8-10 Hours Fasting Required' : '✓ No Fasting Required (Can be drawn immediately)'}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Multi-Ethnic Fitzpatrick Skin Tone Variance Advisory */}
+            {result.skinToneVarianceNotice && (
+                <div className="p-4 bg-amber-50/60 rounded-2xl border border-amber-200 text-xs text-amber-900 space-y-1">
+                    <span className="font-bold flex items-center gap-1.5 text-amber-950">
+                        🎨 Skin Tone Note
+                    </span>
+                    <p className="text-amber-800/90 leading-relaxed">
+                        {result.skinToneVarianceNotice}
+                    </p>
+                </div>
+            )}
+
+            {/* Authoritative Clinical Citations */}
+            {result.clinicalCitations && result.clinicalCitations.length > 0 && (
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 space-y-2">
+                    <span className="text-[11px] font-extrabold uppercase tracking-wider text-slate-500 block">
+                        📚 Medical Guidelines & Sources
+                    </span>
+                    <div className="space-y-1.5">
+                        {result.clinicalCitations.map((cite, idx) => (
+                            <div key={idx} className="text-xs text-slate-600 flex items-start gap-1.5">
+                                <span className="font-bold text-blue-600">• [{cite.source.split(' ')[0]}]</span>
+                                <span>{cite.guideline} {cite.year && `(${cite.year})`}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
 
             {/* Advanced Feature: Video Recommendations */}
             {videos.length > 0 && (
@@ -200,8 +325,8 @@ export const SymptomAnalysisReport: React.FC<SymptomAnalysisReportProps> = ({ re
                     {nextSteps.length > 0 ? (
                         nextSteps.map((step, index) => (
                             <li key={index} className="flex items-start gap-2.5">
-                               <span className="text-green-500 mt-1">&#10003;</span> 
-                               <span>{step}</span>
+                                <span className="text-green-500 mt-1">&#10003;</span> 
+                                <span>{step}</span>
                             </li>
                         ))
                     ) : (

@@ -3,6 +3,7 @@ import { getLiveHealthAlerts, getLocalHealthAlerts } from '../services/geminiSer
 import type { Alert, AlertCategory } from '../types';
 import { BiohazardIcon, WindIcon, SunIcon, GlobeIcon, MapPinIcon, MegaphoneIcon, BellIcon } from './icons';
 import { AlertDetailModal } from './AlertDetailModal';
+import { EmptyState } from './EmptyState';
 
 const getIconForCategory = (category: AlertCategory, className: string = "w-5 h-5") => {
     switch (category) {
@@ -127,16 +128,16 @@ export const AlertsPage: React.FC = () => {
 
         if (noAlerts) {
             return (
-                <div className="text-center bg-white p-12 rounded-lg shadow-sm border border-slate-200/80">
-                    <BellIcon className="w-16 h-16 mx-auto text-slate-300 mb-4" />
-                    <h2 className="text-xl font-bold text-slate-700">{hasErrors ? "Could Not Fetch Alerts" : "No Active Alerts"}</h2>
-                    <p className="text-slate-500 mt-2">
-                        {hasErrors 
-                            ? `${error.local || ''} ${error.global || ''}`.trim()
-                            : "No significant public health alerts found at this time."
-                        }
-                    </p>
-                </div>
+                <EmptyState
+                    icon="🔔"
+                    title={hasErrors ? "Unable to Refresh Live Alerts" : "All Clear: No Active Public Health Alerts"}
+                    subtitle={hasErrors 
+                        ? `${error.local || ''} ${error.global || ''}`.trim()
+                        : "Regional surveillance feeds report zero acute epidemic vector warnings in your immediate geographic perimeter."
+                    }
+                    actionLabel="Refresh Alert Stream"
+                    onAction={() => fetchAlerts(true)}
+                />
             );
         }
 

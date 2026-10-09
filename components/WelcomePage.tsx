@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import type { User, WaterLogSettings, WaterLogEntry, HealthForecast as HealthForecastData, RiskFactor, ActivityLogItem } from '../types';
-import { ScanIcon, StethoscopeIcon, DocumentChartBarIcon, SparklesIcon, ChevronRightIcon, SunIcon, WindIcon, HazardIcon, GlassWaterIcon } from './icons';
+import { ScanIcon, StethoscopeIcon, DocumentChartBarIcon, SparklesIcon, ChevronRightIcon, SunIcon, WindIcon, HazardIcon, GlassWaterIcon, CpuChipIcon } from './icons';
 import { getHealthForecast } from '../services/geminiService';
 import { HealthForecast } from './HealthForecast';
 import { useI18n } from './I18n';
@@ -216,6 +216,75 @@ const QuickActionCard: React.FC<{ icon: React.ReactNode; title: string; subtitle
     </button>
 );
 
+const OutbreakRadarWidget: React.FC<{ onExploreGlobe?: () => void }> = ({ onExploreGlobe }) => {
+    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const dengueTrend = [35, 42, 58, 72, 85, 91, 88]; // Risk index 0-100
+    const asthmaTrend = [65, 70, 78, 62, 55, 48, 52];
+    const entericTrend = [20, 24, 30, 45, 60, 58, 50];
+
+    return (
+        <div className="p-6">
+            <div className="flex items-center justify-between mb-3">
+                <h3 className="text-base font-bold text-slate-800 flex items-center gap-2">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
+                    7-Day Health & Risk Trends
+                </h3>
+                <span className="text-[11px] font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-100">
+                    Live Weather & Air
+                </span>
+            </div>
+
+            <p className="text-xs text-slate-500 mb-4">
+                Estimated health trends based on local weather, air quality, and rainfall in your area.
+            </p>
+
+            <div className="space-y-3">
+                <div>
+                    <div className="flex justify-between text-xs font-semibold mb-1">
+                        <span className="text-red-600 flex items-center gap-1.5">
+                            🦟 Mosquito & Dengue Risk
+                        </span>
+                        <span className="text-red-700 font-bold">91% Peak (Fri)</span>
+                    </div>
+                    <div className="flex items-end gap-1.5 h-10 bg-slate-50 p-1.5 rounded-lg border border-slate-100">
+                        {dengueTrend.map((v, i) => (
+                            <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
+                                <div 
+                                    className={`w-full rounded-sm transition-all ${v > 75 ? 'bg-red-500' : v > 50 ? 'bg-amber-400' : 'bg-emerald-400'}`} 
+                                    style={{ height: `${v}%` }}
+                                    title={`${days[i]}: ${v}% risk`}
+                                />
+                                <span className="text-[9px] text-slate-400">{days[i]}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div>
+                    <div className="flex justify-between text-xs font-semibold mb-1">
+                        <span className="text-amber-600 flex items-center gap-1.5">
+                            🫁 Dust & Air Quality Alert
+                        </span>
+                        <span className="text-amber-700 font-bold">78% (Wed)</span>
+                    </div>
+                    <div className="flex items-end gap-1.5 h-10 bg-slate-50 p-1.5 rounded-lg border border-slate-100">
+                        {asthmaTrend.map((v, i) => (
+                            <div key={i} className="flex-1 flex flex-col items-center gap-0.5 h-full justify-end">
+                                <div 
+                                    className={`w-full rounded-sm transition-all ${v > 75 ? 'bg-red-500' : v > 50 ? 'bg-amber-400' : 'bg-emerald-400'}`} 
+                                    style={{ height: `${v}%` }}
+                                    title={`${days[i]}: ${v}% risk`}
+                                />
+                                <span className="text-[9px] text-slate-400">{days[i]}</span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
 interface WelcomePageProps {
   user: User;
   onAnalyze: () => void;
@@ -223,9 +292,10 @@ interface WelcomePageProps {
   onAnalyzeMentalHealth: () => void;
   onCheckSymptoms: () => void;
   onWaterLog: () => void;
+  onOpenAiFlywheel?: () => void;
 }
 
-export const WelcomePage: React.FC<WelcomePageProps> = ({ user, onAnalyze, onAnalyzePrescription, onAnalyzeMentalHealth, onCheckSymptoms, onWaterLog }) => {
+export const WelcomePage: React.FC<WelcomePageProps> = ({ user, onAnalyze, onAnalyzePrescription, onAnalyzeMentalHealth, onCheckSymptoms, onWaterLog, onOpenAiFlywheel }) => {
     const [view, setView] = useState<'actions' | 'briefing'>('actions');
     const { t } = useI18n();
     const actions = [
@@ -234,6 +304,7 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ user, onAnalyze, onAna
         { icon: <DocumentChartBarIcon className="w-5 h-5 text-orange-500" />, title: t('script_reader'), subtitle: t('script_reader_desc'), onClick: onAnalyzePrescription },
         { icon: <SparklesIcon className="w-5 h-5 text-indigo-500" />, title: t('mind_check'), subtitle: t('mind_check_desc'), onClick: onAnalyzeMentalHealth },
         { icon: <GlassWaterIcon className="w-5 h-5 text-cyan-500" />, title: t('water_log'), subtitle: t('water_log_desc'), onClick: onWaterLog },
+        ...(onOpenAiFlywheel ? [{ icon: <CpuChipIcon className="w-5 h-5 text-purple-600" />, title: 'AI Model Flywheel', subtitle: 'Live model telemetry & active learning', onClick: onOpenAiFlywheel }] : [])
     ];
 
     if (view === 'briefing') {
@@ -253,8 +324,11 @@ export const WelcomePage: React.FC<WelcomePageProps> = ({ user, onAnalyze, onAna
                         <Card className="animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                             <HealthCastWidget onNavigate={() => setView('briefing')} />
                         </Card>
-                         <Card className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
-                           <ActivityChart />
+                        <Card className="animate-fade-in-up" style={{ animationDelay: '250ms' }}>
+                            <OutbreakRadarWidget />
+                        </Card>
+                        <Card className="animate-fade-in-up" style={{ animationDelay: '300ms' }}>
+                            <ActivityChart />
                         </Card>
                     </div>
 

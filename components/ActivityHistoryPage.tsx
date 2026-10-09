@@ -8,6 +8,7 @@ import { PrescriptionReport } from './PrescriptionReport';
 import { MentalHealthReport } from './MentalHealthReport';
 import { SymptomAnalysisReport } from './SymptomAnalysisReport';
 import { BackButton } from './BackButton';
+import { EmptyState } from './EmptyState';
 
 interface ActivityHistoryPageProps {
   history: ActivityLogItem[];
@@ -107,11 +108,13 @@ export const ActivityHistoryPage: React.FC<ActivityHistoryPageProps> = ({ histor
                     ))}
                 </div>
             ) : (
-                <div className="text-center bg-white p-12 rounded-lg shadow-sm border border-slate-200/80">
-                    <HistoryIcon className="w-16 h-16 mx-auto text-slate-300 mb-4" />
-                    <h2 className="text-xl font-bold text-slate-700">No Activity Yet</h2>
-                    <p className="text-slate-500 mt-2">Your analysis reports will appear here once you use the app's features.</p>
-                </div>
+                <EmptyState
+                    icon="⏱️"
+                    title="No Activity Logged Yet"
+                    subtitle="Your saved photo checks, medicine reviews, and symptom history will appear here once you run a check."
+                    actionLabel="Start a Health Scan"
+                    onAction={onBack}
+                />
             )}
         </main>
         

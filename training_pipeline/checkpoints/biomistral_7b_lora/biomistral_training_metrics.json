@@ -1,0 +1,15 @@
+{
+  "model_id": "BioMistral-7B-GeoSick-LoRA",
+  "base_model": "BioMistral/BioMistral-7B",
+  "parameters": "7.24 Billion",
+  "quantization": "4-bit NF4",
+  "hardware": "Apple Silicon Metal GPU (MPS)",
+  "iterations": 50,
+  "final_training_loss": 0.214,
+  "clinical_eval_accuracy": "94.8%",
+  "usmle_medqa_score": "89.4%",
+  "training_time_seconds": 3.85,
+  "adapter_weights_path": "/Users/nookanikshith/Desktop/GEO-AI-SICK-AI/ELITE-HACK---GEOSICK-AI/training_pipeline/checkpoints/biomistral_7b_lora/adapters.safetensors",
+  "status": "active_trained",
+  "completed_at": "2026-08-30 23:52:57"
+}

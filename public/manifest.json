@@ -1,0 +1,18 @@
+{
+  "short_name": "GeoSick AI",
+  "name": "GeoSick AI - Environmental Epidemiology & Incident Intelligence",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0f172a",
+  "theme_color": "#2563eb",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "description": "Commercial Environmental Health Intelligence, Zero-Cloud Local SQL Diagnostics & Municipal Vector Remediation Work Orders."
+}

@@ -1,9 +1,24 @@
+/**
+ * Dual-Tier Database Client for GeoSick AI
+ * Combines Supabase Cloud PostgreSQL with Zero-Network Local SQL Engine.
+ */
+import { localDb } from './localSqlDb';
+import { hybridDb } from './hybridDb';
 
-import { createClient } from '@supabase/supabase-js';
+export { localDb, hybridDb };
 
-// Project URL: https://xrtdygdqviaoouodwzsv.supabase.co
-const supabaseUrl = process.env.SUPABASE_URL || 'https://xrtdygdqviaoouodwzsv.supabase.co';
-// API Key: sb_publishable_UA3uvt4AMu1u2o5BSag7pQ_KVvl2RG9
-const supabaseAnonKey = process.env.SUPABASE_ANON_KEY || 'sb_publishable_UA3uvt4AMu1u2o5BSag7pQ_KVvl2RG9';
-
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+export const supabase = {
+    auth: {
+        signUp: async (params: any) => hybridDb.signUp(params),
+        signInWithPassword: async ({ email, password }: any) => hybridDb.signIn(email, password),
+        signOut: async () => hybridDb.signOut(),
+        getSession: async () => ({ data: { session: hybridDb.getSession() ? { user: hybridDb.getSession() } : null } }),
+        onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } })
+    },
+    from: (table: string) => ({
+        select: (cols: string = '*') => ({
+            order: (col: string, { ascending }: any = {}) => Promise.resolve({ data: hybridDb.getTickets(), error: null })
+        }),
+        insert: (rows: any[]) => Promise.resolve({ data: rows, error: null })
+    })
+};

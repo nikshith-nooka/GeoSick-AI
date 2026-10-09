@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#1d4ed8" />
+    </linearGradient>
+    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#0f172a" />
+  <circle cx="32" cy="32" r="22" stroke="url(#grad1)" stroke-width="3" fill="none" opacity="0.4" />
+  <ellipse cx="32" cy="32" rx="10" ry="22" stroke="url(#grad1)" stroke-width="2.5" fill="none" opacity="0.6" />
+  <line x1="10" y1="32" x2="54" y2="32" stroke="url(#grad1)" stroke-width="2.5" opacity="0.6" />
+  
+  <!-- Health Cross / Shield Emblem in Center -->
+  <path d="M32 18 C32 18 42 22 42 30 C42 40 32 46 32 46 C32 46 22 40 22 30 C22 22 32 18 32 18 Z" fill="url(#grad2)" />
+  <path d="M32 24 V36 M26 30 H38" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" />
+</svg>

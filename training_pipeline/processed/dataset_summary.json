@@ -1,0 +1,16 @@
+{
+  "dataset_version": "2.0_authentic_production",
+  "open_source_sources": [
+    "OpenAQ_v2",
+    "NIH_MedQuAD",
+    "ISIC_Archive_v2",
+    "WHO_NVBDCP"
+  ],
+  "duplicates_policy": "Zero synthetic duplication strictly enforced",
+  "records_count": {
+    "environmental_epidemiology": 10,
+    "vision_diagnostic": 27,
+    "clinical_triage_nih": 25
+  },
+  "last_compiled_at": "2026-09-07 20:33:08"
+}

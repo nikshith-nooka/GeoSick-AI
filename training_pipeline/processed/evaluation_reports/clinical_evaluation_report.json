@@ -1,0 +1,2045 @@
+{
+  "top1_accuracy": 17.32,
+  "top5_accuracy": 30.48,
+  "macro_precision": 0.3803,
+  "macro_recall": 0.5491,
+  "macro_f1": 0.3218,
+  "weighted_f1": 0.1312,
+  "total_samples": 14354,
+  "per_class": {
+    "acne_keloidalis_nuchae": {
+      "precision": 0.5098,
+      "recall": 0.5909,
+      "f1": 0.5474,
+      "auc_roc": 0.9856,
+      "support": 44,
+      "tp": 26,
+      "fp": 25,
+      "fn": 18
+    },
+    "acne_vulgaris": {
+      "precision": 0.9333,
+      "recall": 0.2333,
+      "f1": 0.3733,
+      "auc_roc": 0.991,
+      "support": 60,
+      "tp": 14,
+      "fp": 1,
+      "fn": 46
+    },
+    "acrokeratosis_verruciformis": {
+      "precision": 0.5882,
+      "recall": 1.0,
+      "f1": 0.7407,
+      "auc_roc": 1.0,
+      "support": 10,
+      "tp": 10,
+      "fp": 7,
+      "fn": 0
+    },
+    "actinic_solar_damage(actinic_cheilitis)": {
+      "precision": 0.2745,
+      "recall": 1.0,
+      "f1": 0.4308,
+      "auc_roc": 0.9999,
+      "support": 14,
+      "tp": 14,
+      "fp": 37,
+      "fn": 0
+    },
+    "actinic_solar_damage(actinic_keratosis)": {
+      "precision": 0.5714,
+      "recall": 0.0667,
+      "f1": 0.1194,
+      "auc_roc": 0.9412,
+      "support": 60,
+      "tp": 4,
+      "fp": 3,
+      "fn": 56
+    },
+    "actinic_solar_damage(cutis_rhomboidalis_nuchae)": {
+      "precision": 0.1504,
+      "recall": 1.0,
+      "f1": 0.2614,
+      "auc_roc": 0.9997,
+      "support": 20,
+      "tp": 20,
+      "fp": 113,
+      "fn": 0
+    },
+    "actinic_solar_damage(pigmentation)": {
+      "precision": 0.9412,
+      "recall": 0.2667,
+      "f1": 0.4156,
+      "auc_roc": 0.9817,
+      "support": 60,
+      "tp": 16,
+      "fp": 1,
+      "fn": 44
+    },
+    "actinic_solar_damage(solar_elastosis)": {
+      "precision": 0.7647,
+      "recall": 0.65,
+      "f1": 0.7027,
+      "auc_roc": 0.9991,
+      "support": 60,
+      "tp": 39,
+      "fp": 12,
+      "fn": 21
+    },
+    "actinic_solar_damage(solar_purpura)": {
+      "precision": 0.1728,
+      "recall": 0.6667,
+      "f1": 0.2745,
+      "auc_roc": 0.9976,
+      "support": 21,
+      "tp": 14,
+      "fp": 67,
+      "fn": 7
+    },
+    "actinic_solar_damage(telangiectasia)": {
+      "precision": 0.3846,
+      "recall": 0.1111,
+      "f1": 0.1724,
+      "auc_roc": 0.9763,
+      "support": 45,
+      "tp": 5,
+      "fp": 8,
+      "fn": 40
+    },
+    "acute_eczema": {
+      "precision": 0.3077,
+      "recall": 0.8571,
+      "f1": 0.4528,
+      "auc_roc": 0.9982,
+      "support": 14,
+      "tp": 12,
+      "fp": 27,
+      "fn": 2
+    },
+    "allergic_contact_dermatitis": {
+      "precision": 0.5,
+      "recall": 0.0167,
+      "f1": 0.0323,
+      "auc_roc": 0.9478,
+      "support": 60,
+      "tp": 1,
+      "fp": 1,
+      "fn": 59
+    },
+    "alopecia_areata": {
+      "precision": 0.4762,
+      "recall": 0.1667,
+      "f1": 0.2469,
+      "auc_roc": 0.9759,
+      "support": 60,
+      "tp": 10,
+      "fp": 11,
+      "fn": 50
+    },
+    "androgenetic_alopecia": {
+      "precision": 0.5686,
+      "recall": 0.7073,
+      "f1": 0.6304,
+      "auc_roc": 0.9976,
+      "support": 41,
+      "tp": 29,
+      "fp": 22,
+      "fn": 12
+    },
+    "angioma": {
+      "precision": 0.2222,
+      "recall": 0.1818,
+      "f1": 0.2,
+      "auc_roc": 0.9115,
+      "support": 55,
+      "tp": 10,
+      "fp": 35,
+      "fn": 45
+    },
+    "angular_cheilitis": {
+      "precision": 0.4615,
+      "recall": 0.5455,
+      "f1": 0.5,
+      "auc_roc": 0.9935,
+      "support": 44,
+      "tp": 24,
+      "fp": 28,
+      "fn": 20
+    },
+    "aphthous_ulcer": {
+      "precision": 0.4,
+      "recall": 0.9231,
+      "f1": 0.5581,
+      "auc_roc": 1.0,
+      "support": 13,
+      "tp": 12,
+      "fp": 18,
+      "fn": 1
+    },
+    "apocrine_hydrocystoma": {
+      "precision": 0.2143,
+      "recall": 0.1395,
+      "f1": 0.169,
+      "auc_roc": 0.9853,
+      "support": 43,
+      "tp": 6,
+      "fp": 22,
+      "fn": 37
+    },
+    "arsenical_keratosis": {
+      "precision": 0.031,
+      "recall": 0.9375,
+      "f1": 0.06,
+      "auc_roc": 0.9979,
+      "support": 16,
+      "tp": 15,
+      "fp": 469,
+      "fn": 1
+    },
+    "balanitis_xerotica_obliterans": {
+      "precision": 0.5789,
+      "recall": 1.0,
+      "f1": 0.7333,
+      "auc_roc": 1.0,
+      "support": 11,
+      "tp": 11,
+      "fp": 8,
+      "fn": 0
+    },
+    "basal_cell_carcinoma": {
+      "precision": 0.3333,
+      "recall": 0.0333,
+      "f1": 0.0606,
+      "auc_roc": 0.9667,
+      "support": 60,
+      "tp": 2,
+      "fp": 4,
+      "fn": 58
+    },
+    "beau's_lines": {
+      "precision": 0.5294,
+      "recall": 0.2647,
+      "f1": 0.3529,
+      "auc_roc": 0.997,
+      "support": 34,
+      "tp": 9,
+      "fp": 8,
+      "fn": 25
+    },
+    "becker's_nevus": {
+      "precision": 0.1553,
+      "recall": 0.9412,
+      "f1": 0.2667,
+      "auc_roc": 0.9983,
+      "support": 17,
+      "tp": 16,
+      "fp": 87,
+      "fn": 1
+    },
+    "behcet's_syndrome": {
+      "precision": 0.5652,
+      "recall": 1.0,
+      "f1": 0.7222,
+      "auc_roc": 1.0,
+      "support": 13,
+      "tp": 13,
+      "fp": 10,
+      "fn": 0
+    },
+    "benign_keratosis": {
+      "precision": 0.75,
+      "recall": 0.1017,
+      "f1": 0.1791,
+      "auc_roc": 0.9367,
+      "support": 59,
+      "tp": 6,
+      "fp": 2,
+      "fn": 53
+    },
+    "blue_nevus": {
+      "precision": 0.4286,
+      "recall": 0.05,
+      "f1": 0.0896,
+      "auc_roc": 0.9114,
+      "support": 60,
+      "tp": 3,
+      "fp": 4,
+      "fn": 57
+    },
+    "bowen's_disease": {
+      "precision": 0.5,
+      "recall": 0.0508,
+      "f1": 0.0923,
+      "auc_roc": 0.8279,
+      "support": 59,
+      "tp": 3,
+      "fp": 3,
+      "fn": 56
+    },
+    "bowenoid_papulosis": {
+      "precision": 0.2833,
+      "recall": 1.0,
+      "f1": 0.4416,
+      "auc_roc": 0.9998,
+      "support": 17,
+      "tp": 17,
+      "fp": 43,
+      "fn": 0
+    },
+    "cafe_au_lait_macule": {
+      "precision": 0.01,
+      "recall": 1.0,
+      "f1": 0.0198,
+      "auc_roc": 0.9998,
+      "support": 14,
+      "tp": 14,
+      "fp": 1385,
+      "fn": 0
+    },
+    "callus": {
+      "precision": 0.72,
+      "recall": 0.7826,
+      "f1": 0.75,
+      "auc_roc": 0.9998,
+      "support": 23,
+      "tp": 18,
+      "fp": 7,
+      "fn": 5
+    },
+    "candidiasis": {
+      "precision": 0.5,
+      "recall": 0.0182,
+      "f1": 0.0351,
+      "auc_roc": 0.9845,
+      "support": 55,
+      "tp": 1,
+      "fp": 1,
+      "fn": 54
+    },
+    "cellulitis": {
+      "precision": 0.3133,
+      "recall": 0.7429,
+      "f1": 0.4407,
+      "auc_roc": 0.9967,
+      "support": 35,
+      "tp": 26,
+      "fp": 57,
+      "fn": 9
+    },
+    "chalazion": {
+      "precision": 0.2462,
+      "recall": 1.0,
+      "f1": 0.3951,
+      "auc_roc": 0.9999,
+      "support": 16,
+      "tp": 16,
+      "fp": 49,
+      "fn": 0
+    },
+    "clubbing_of_fingers": {
+      "precision": 0.3256,
+      "recall": 0.8485,
+      "f1": 0.4706,
+      "auc_roc": 0.9973,
+      "support": 33,
+      "tp": 28,
+      "fp": 58,
+      "fn": 5
+    },
+    "compound_nevus": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.8932,
+      "support": 60,
+      "tp": 0,
+      "fp": 10,
+      "fn": 60
+    },
+    "congenital_nevus": {
+      "precision": 0.0818,
+      "recall": 0.4333,
+      "f1": 0.1376,
+      "auc_roc": 0.8936,
+      "support": 60,
+      "tp": 26,
+      "fp": 292,
+      "fn": 34
+    },
+    "crowe's_sign": {
+      "precision": 0.1241,
+      "recall": 0.9,
+      "f1": 0.2182,
+      "auc_roc": 0.9923,
+      "support": 20,
+      "tp": 18,
+      "fp": 127,
+      "fn": 2
+    },
+    "cutanea_larva_migrans": {
+      "precision": 0.3404,
+      "recall": 1.0,
+      "f1": 0.5079,
+      "auc_roc": 0.9999,
+      "support": 16,
+      "tp": 16,
+      "fp": 31,
+      "fn": 0
+    },
+    "cutaneous_horn": {
+      "precision": 0.7333,
+      "recall": 0.1833,
+      "f1": 0.2933,
+      "auc_roc": 0.9447,
+      "support": 60,
+      "tp": 11,
+      "fp": 4,
+      "fn": 49
+    },
+    "cutaneous_t_cell_lymphoma": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.0,
+      "support": 0,
+      "tp": 0,
+      "fp": 30,
+      "fn": 0
+    },
+    "cutis_marmorata": {
+      "precision": 0.1644,
+      "recall": 1.0,
+      "f1": 0.2824,
+      "auc_roc": 0.9999,
+      "support": 12,
+      "tp": 12,
+      "fp": 61,
+      "fn": 0
+    },
+    "darier_white_disease": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.0,
+      "support": 0,
+      "tp": 0,
+      "fp": 82,
+      "fn": 0
+    },
+    "dermatofibroma": {
+      "precision": 0.1881,
+      "recall": 0.3167,
+      "f1": 0.236,
+      "auc_roc": 0.9514,
+      "support": 60,
+      "tp": 19,
+      "fp": 82,
+      "fn": 41
+    },
+    "dermatosis_papulosa_nigra": {
+      "precision": 0.2411,
+      "recall": 0.9643,
+      "f1": 0.3857,
+      "auc_roc": 0.9994,
+      "support": 28,
+      "tp": 27,
+      "fp": 85,
+      "fn": 1
+    },
+    "desquamation": {
+      "precision": 0.4595,
+      "recall": 0.8095,
+      "f1": 0.5862,
+      "auc_roc": 0.998,
+      "support": 21,
+      "tp": 17,
+      "fp": 20,
+      "fn": 4
+    },
+    "digital_fibroma": {
+      "precision": 0.4118,
+      "recall": 0.7,
+      "f1": 0.5185,
+      "auc_roc": 0.9992,
+      "support": 20,
+      "tp": 14,
+      "fp": 20,
+      "fn": 6
+    },
+    "dilated_pore_of_winer": {
+      "precision": 0.1083,
+      "recall": 0.68,
+      "f1": 0.1868,
+      "auc_roc": 0.9611,
+      "support": 25,
+      "tp": 17,
+      "fp": 140,
+      "fn": 8
+    },
+    "discoid_lupus_erythematosus": {
+      "precision": 0.2766,
+      "recall": 0.8667,
+      "f1": 0.4194,
+      "auc_roc": 0.9983,
+      "support": 15,
+      "tp": 13,
+      "fp": 34,
+      "fn": 2
+    },
+    "disseminated_actinic_porokeratosis": {
+      "precision": 0.1053,
+      "recall": 0.4,
+      "f1": 0.1667,
+      "auc_roc": 0.968,
+      "support": 30,
+      "tp": 12,
+      "fp": 102,
+      "fn": 18
+    },
+    "drug_eruption": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.9141,
+      "support": 58,
+      "tp": 0,
+      "fp": 0,
+      "fn": 58
+    },
+    "dry_skin_eczema": {
+      "precision": 0.8,
+      "recall": 0.1509,
+      "f1": 0.254,
+      "auc_roc": 0.9513,
+      "support": 53,
+      "tp": 8,
+      "fp": 2,
+      "fn": 45
+    },
+    "dyshidrosiform_eczema": {
+      "precision": 0.5625,
+      "recall": 0.15,
+      "f1": 0.2368,
+      "auc_roc": 0.9871,
+      "support": 60,
+      "tp": 9,
+      "fp": 7,
+      "fn": 51
+    },
+    "dysplastic_nevus": {
+      "precision": 0.1182,
+      "recall": 0.2167,
+      "f1": 0.1529,
+      "auc_roc": 0.9314,
+      "support": 60,
+      "tp": 13,
+      "fp": 97,
+      "fn": 47
+    },
+    "eccrine_poroma": {
+      "precision": 0.0782,
+      "recall": 1.0,
+      "f1": 0.1451,
+      "auc_roc": 0.9998,
+      "support": 14,
+      "tp": 14,
+      "fp": 165,
+      "fn": 0
+    },
+    "eczema": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.905,
+      "support": 60,
+      "tp": 0,
+      "fp": 1,
+      "fn": 60
+    },
+    "epidermal_nevus": {
+      "precision": 0.1101,
+      "recall": 0.4286,
+      "f1": 0.1752,
+      "auc_roc": 0.9649,
+      "support": 28,
+      "tp": 12,
+      "fp": 97,
+      "fn": 16
+    },
+    "epidermoid_cyst": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.9636,
+      "support": 60,
+      "tp": 0,
+      "fp": 0,
+      "fn": 60
+    },
+    "epithelioma_adenoides_cysticum": {
+      "precision": 0.1429,
+      "recall": 0.8,
+      "f1": 0.2424,
+      "auc_roc": 0.9882,
+      "support": 15,
+      "tp": 12,
+      "fp": 72,
+      "fn": 3
+    },
+    "erythema_ab_igne": {
+      "precision": 0.1452,
+      "recall": 0.5,
+      "f1": 0.225,
+      "auc_roc": 0.9389,
+      "support": 18,
+      "tp": 9,
+      "fp": 53,
+      "fn": 9
+    },
+    "erythema_annulare_centrifigum": {
+      "precision": 0.0476,
+      "recall": 0.7273,
+      "f1": 0.0894,
+      "auc_roc": 0.9788,
+      "support": 11,
+      "tp": 8,
+      "fp": 160,
+      "fn": 3
+    },
+    "erythema_craquele": {
+      "precision": 0.4035,
+      "recall": 0.7419,
+      "f1": 0.5227,
+      "auc_roc": 0.9964,
+      "support": 31,
+      "tp": 23,
+      "fp": 34,
+      "fn": 8
+    },
+    "erythema_multiforme": {
+      "precision": 0.28,
+      "recall": 0.5833,
+      "f1": 0.3784,
+      "auc_roc": 0.9918,
+      "support": 24,
+      "tp": 14,
+      "fp": 36,
+      "fn": 10
+    },
+    "exfoliative_erythroderma": {
+      "precision": 0.3077,
+      "recall": 0.5517,
+      "f1": 0.3951,
+      "auc_roc": 0.9676,
+      "support": 29,
+      "tp": 16,
+      "fp": 36,
+      "fn": 13
+    },
+    "factitial_dermatitis": {
+      "precision": 0.5455,
+      "recall": 0.1,
+      "f1": 0.169,
+      "auc_roc": 0.8906,
+      "support": 60,
+      "tp": 6,
+      "fp": 5,
+      "fn": 54
+    },
+    "favre_racouchot": {
+      "precision": 0.6216,
+      "recall": 0.3898,
+      "f1": 0.4792,
+      "auc_roc": 0.985,
+      "support": 59,
+      "tp": 23,
+      "fp": 14,
+      "fn": 36
+    },
+    "fibroma": {
+      "precision": 0.3778,
+      "recall": 1.0,
+      "f1": 0.5484,
+      "auc_roc": 0.9998,
+      "support": 17,
+      "tp": 17,
+      "fp": 28,
+      "fn": 0
+    },
+    "fibroma_molle": {
+      "precision": 0.6286,
+      "recall": 0.3929,
+      "f1": 0.4835,
+      "auc_roc": 0.9755,
+      "support": 56,
+      "tp": 22,
+      "fp": 13,
+      "fn": 34
+    },
+    "fixed_drug_eruption": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.7497,
+      "support": 38,
+      "tp": 0,
+      "fp": 1,
+      "fn": 38
+    },
+    "follicular_mucinosis": {
+      "precision": 0.2568,
+      "recall": 0.7308,
+      "f1": 0.38,
+      "auc_roc": 0.9981,
+      "support": 26,
+      "tp": 19,
+      "fp": 55,
+      "fn": 7
+    },
+    "follicular_retention_cyst": {
+      "precision": 0.1364,
+      "recall": 0.9,
+      "f1": 0.2368,
+      "auc_roc": 0.9952,
+      "support": 10,
+      "tp": 9,
+      "fp": 57,
+      "fn": 1
+    },
+    "fordyce_spots": {
+      "precision": 0.5862,
+      "recall": 0.9444,
+      "f1": 0.7234,
+      "auc_roc": 0.9999,
+      "support": 18,
+      "tp": 17,
+      "fp": 12,
+      "fn": 1
+    },
+    "frictional_lichenoid_dermatitis": {
+      "precision": 0.2,
+      "recall": 0.9167,
+      "f1": 0.3284,
+      "auc_roc": 0.9996,
+      "support": 12,
+      "tp": 11,
+      "fp": 44,
+      "fn": 1
+    },
+    "ganglion": {
+      "precision": 0.2444,
+      "recall": 1.0,
+      "f1": 0.3929,
+      "auc_roc": 1.0,
+      "support": 11,
+      "tp": 11,
+      "fp": 34,
+      "fn": 0
+    },
+    "geographic_tongue": {
+      "precision": 0.75,
+      "recall": 0.8824,
+      "f1": 0.8108,
+      "auc_roc": 0.9994,
+      "support": 17,
+      "tp": 15,
+      "fp": 5,
+      "fn": 2
+    },
+    "granulation_tissue": {
+      "precision": 0.381,
+      "recall": 0.4,
+      "f1": 0.3902,
+      "auc_roc": 0.9729,
+      "support": 20,
+      "tp": 8,
+      "fp": 13,
+      "fn": 12
+    },
+    "granuloma_annulare": {
+      "precision": 0.4286,
+      "recall": 0.12,
+      "f1": 0.1875,
+      "auc_roc": 0.9351,
+      "support": 25,
+      "tp": 3,
+      "fp": 4,
+      "fn": 22
+    },
+    "green_nail": {
+      "precision": 0.6667,
+      "recall": 0.7368,
+      "f1": 0.7,
+      "auc_roc": 0.9993,
+      "support": 19,
+      "tp": 14,
+      "fp": 7,
+      "fn": 5
+    },
+    "guttate_psoriasis": {
+      "precision": 0.3077,
+      "recall": 0.9091,
+      "f1": 0.4598,
+      "auc_roc": 0.9978,
+      "support": 22,
+      "tp": 20,
+      "fp": 45,
+      "fn": 2
+    },
+    "hailey_hailey_disease": {
+      "precision": 0.0803,
+      "recall": 0.9167,
+      "f1": 0.1477,
+      "auc_roc": 0.9961,
+      "support": 12,
+      "tp": 11,
+      "fp": 126,
+      "fn": 1
+    },
+    "half_and_half_nail": {
+      "precision": 0.4138,
+      "recall": 0.8571,
+      "f1": 0.5581,
+      "auc_roc": 0.9999,
+      "support": 14,
+      "tp": 12,
+      "fp": 17,
+      "fn": 2
+    },
+    "halo_nevus": {
+      "precision": 0.1584,
+      "recall": 0.6154,
+      "f1": 0.252,
+      "auc_roc": 0.9184,
+      "support": 52,
+      "tp": 32,
+      "fp": 170,
+      "fn": 20
+    },
+    "herpes_simplex_virus": {
+      "precision": 0.2941,
+      "recall": 0.4167,
+      "f1": 0.3448,
+      "auc_roc": 0.9749,
+      "support": 24,
+      "tp": 10,
+      "fp": 24,
+      "fn": 14
+    },
+    "herpes_zoster": {
+      "precision": 0.1181,
+      "recall": 0.625,
+      "f1": 0.1987,
+      "auc_roc": 0.9558,
+      "support": 24,
+      "tp": 15,
+      "fp": 112,
+      "fn": 9
+    },
+    "hidradenitis_suppurativa": {
+      "precision": 0.2245,
+      "recall": 0.7586,
+      "f1": 0.3465,
+      "auc_roc": 0.9684,
+      "support": 29,
+      "tp": 22,
+      "fp": 76,
+      "fn": 7
+    },
+    "histiocytosis_x": {
+      "precision": 0.3437,
+      "recall": 1.0,
+      "f1": 0.5116,
+      "auc_roc": 1.0,
+      "support": 11,
+      "tp": 11,
+      "fp": 21,
+      "fn": 0
+    },
+    "hyperkeratosis_palmaris_et_plantaris": {
+      "precision": 0.8148,
+      "recall": 0.55,
+      "f1": 0.6567,
+      "auc_roc": 0.9984,
+      "support": 40,
+      "tp": 22,
+      "fp": 5,
+      "fn": 18
+    },
+    "hypertrichosis": {
+      "precision": 0.6957,
+      "recall": 0.4324,
+      "f1": 0.5333,
+      "auc_roc": 0.9974,
+      "support": 37,
+      "tp": 16,
+      "fp": 7,
+      "fn": 21
+    },
+    "ichthyosis": {
+      "precision": 0.6,
+      "recall": 0.2,
+      "f1": 0.3,
+      "auc_roc": 0.9882,
+      "support": 60,
+      "tp": 12,
+      "fp": 8,
+      "fn": 48
+    },
+    "impetigo": {
+      "precision": 0.0517,
+      "recall": 0.9375,
+      "f1": 0.098,
+      "auc_roc": 0.9993,
+      "support": 16,
+      "tp": 15,
+      "fp": 275,
+      "fn": 1
+    },
+    "infantile_atopic_dermatitis": {
+      "precision": 0.5294,
+      "recall": 0.3333,
+      "f1": 0.4091,
+      "auc_roc": 0.9654,
+      "support": 27,
+      "tp": 9,
+      "fp": 8,
+      "fn": 18
+    },
+    "inverse_psoriasis": {
+      "precision": 1.0,
+      "recall": 0.0167,
+      "f1": 0.0328,
+      "auc_roc": 0.9462,
+      "support": 60,
+      "tp": 1,
+      "fp": 0,
+      "fn": 59
+    },
+    "junction_nevus": {
+      "precision": 0.125,
+      "recall": 0.1176,
+      "f1": 0.1212,
+      "auc_roc": 0.8907,
+      "support": 34,
+      "tp": 4,
+      "fp": 28,
+      "fn": 30
+    },
+    "keloid": {
+      "precision": 0.7857,
+      "recall": 0.2245,
+      "f1": 0.3492,
+      "auc_roc": 0.9013,
+      "support": 49,
+      "tp": 11,
+      "fp": 3,
+      "fn": 38
+    },
+    "keratoacanthoma": {
+      "precision": 0.8,
+      "recall": 0.0667,
+      "f1": 0.1231,
+      "auc_roc": 0.9573,
+      "support": 60,
+      "tp": 4,
+      "fp": 1,
+      "fn": 56
+    },
+    "keratolysis_exfoliativa_of_wende": {
+      "precision": 0.2258,
+      "recall": 0.6667,
+      "f1": 0.3373,
+      "auc_roc": 0.9853,
+      "support": 21,
+      "tp": 14,
+      "fp": 48,
+      "fn": 7
+    },
+    "keratosis_pilaris": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.9646,
+      "support": 47,
+      "tp": 0,
+      "fp": 0,
+      "fn": 47
+    },
+    "kerion": {
+      "precision": 0.4444,
+      "recall": 0.7368,
+      "f1": 0.5545,
+      "auc_roc": 0.9954,
+      "support": 38,
+      "tp": 28,
+      "fp": 35,
+      "fn": 10
+    },
+    "koilonychia": {
+      "precision": 0.8095,
+      "recall": 0.85,
+      "f1": 0.8293,
+      "auc_roc": 0.9997,
+      "support": 20,
+      "tp": 17,
+      "fp": 4,
+      "fn": 3
+    },
+    "kyrle's_disease": {
+      "precision": 0.359,
+      "recall": 1.0,
+      "f1": 0.5283,
+      "auc_roc": 1.0,
+      "support": 14,
+      "tp": 14,
+      "fp": 25,
+      "fn": 0
+    },
+    "leiomyoma": {
+      "precision": 0.0603,
+      "recall": 0.8,
+      "f1": 0.1121,
+      "auc_roc": 0.9806,
+      "support": 15,
+      "tp": 12,
+      "fp": 187,
+      "fn": 3
+    },
+    "lentigo_maligna_melanoma": {
+      "precision": 1.0,
+      "recall": 0.1887,
+      "f1": 0.3175,
+      "auc_roc": 0.9586,
+      "support": 53,
+      "tp": 10,
+      "fp": 0,
+      "fn": 43
+    },
+    "leukocytoclastic_vasculitis": {
+      "precision": 0.1613,
+      "recall": 0.5,
+      "f1": 0.2439,
+      "auc_roc": 0.9517,
+      "support": 20,
+      "tp": 10,
+      "fp": 52,
+      "fn": 10
+    },
+    "leukonychia": {
+      "precision": 0.7333,
+      "recall": 0.3548,
+      "f1": 0.4783,
+      "auc_roc": 0.997,
+      "support": 31,
+      "tp": 11,
+      "fp": 4,
+      "fn": 20
+    },
+    "lichen_planus": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.829,
+      "support": 52,
+      "tp": 0,
+      "fp": 0,
+      "fn": 52
+    },
+    "lichen_sclerosis_et_atrophicus": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.8275,
+      "support": 56,
+      "tp": 0,
+      "fp": 0,
+      "fn": 56
+    },
+    "lichen_simplex_chronicus": {
+      "precision": 0.3125,
+      "recall": 0.3333,
+      "f1": 0.3226,
+      "auc_roc": 0.9712,
+      "support": 30,
+      "tp": 10,
+      "fp": 22,
+      "fn": 20
+    },
+    "lichen_spinulosis": {
+      "precision": 0.072,
+      "recall": 0.8182,
+      "f1": 0.1324,
+      "auc_roc": 0.9906,
+      "support": 11,
+      "tp": 9,
+      "fp": 116,
+      "fn": 2
+    },
+    "linear_epidermal_nevus": {
+      "precision": 0.0634,
+      "recall": 0.8182,
+      "f1": 0.1176,
+      "auc_roc": 0.979,
+      "support": 11,
+      "tp": 9,
+      "fp": 133,
+      "fn": 2
+    },
+    "lipoma": {
+      "precision": 0.4,
+      "recall": 0.8,
+      "f1": 0.5333,
+      "auc_roc": 0.9928,
+      "support": 20,
+      "tp": 16,
+      "fp": 24,
+      "fn": 4
+    },
+    "livedo_reticularis": {
+      "precision": 0.7586,
+      "recall": 0.5946,
+      "f1": 0.6667,
+      "auc_roc": 0.9869,
+      "support": 37,
+      "tp": 22,
+      "fp": 7,
+      "fn": 15
+    },
+    "lymphangioma_circumscriptum": {
+      "precision": 0.0455,
+      "recall": 1.0,
+      "f1": 0.087,
+      "auc_roc": 1.0,
+      "support": 11,
+      "tp": 11,
+      "fp": 231,
+      "fn": 0
+    },
+    "lymphocytic_infiltrate_of_jessner": {
+      "precision": 0.5625,
+      "recall": 0.1765,
+      "f1": 0.2687,
+      "auc_roc": 0.9318,
+      "support": 51,
+      "tp": 9,
+      "fp": 7,
+      "fn": 42
+    },
+    "lymphomatoid_papulosis": {
+      "precision": 0.0427,
+      "recall": 0.6316,
+      "f1": 0.08,
+      "auc_roc": 0.9562,
+      "support": 19,
+      "tp": 12,
+      "fp": 269,
+      "fn": 7
+    },
+    "mal_perforans": {
+      "precision": 0.3684,
+      "recall": 1.0,
+      "f1": 0.5385,
+      "auc_roc": 1.0,
+      "support": 14,
+      "tp": 14,
+      "fp": 24,
+      "fn": 0
+    },
+    "malignant_melanoma": {
+      "precision": 0.0268,
+      "recall": 0.35,
+      "f1": 0.0497,
+      "auc_roc": 0.8743,
+      "support": 60,
+      "tp": 21,
+      "fp": 764,
+      "fn": 39
+    },
+    "median_nail_dystrophy": {
+      "precision": 0.5,
+      "recall": 0.8696,
+      "f1": 0.6349,
+      "auc_roc": 0.9983,
+      "support": 23,
+      "tp": 20,
+      "fp": 20,
+      "fn": 3
+    },
+    "melanocytic_nevi": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.8358,
+      "support": 6705,
+      "tp": 0,
+      "fp": 0,
+      "fn": 6705
+    },
+    "melanoma": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.7823,
+      "support": 1113,
+      "tp": 0,
+      "fp": 1,
+      "fn": 1113
+    },
+    "melasma": {
+      "precision": 0.11,
+      "recall": 1.0,
+      "f1": 0.1982,
+      "auc_roc": 0.9992,
+      "support": 11,
+      "tp": 11,
+      "fp": 89,
+      "fn": 0
+    },
+    "metastatic_carcinoma": {
+      "precision": 0.3448,
+      "recall": 0.3704,
+      "f1": 0.3571,
+      "auc_roc": 0.9484,
+      "support": 27,
+      "tp": 10,
+      "fp": 19,
+      "fn": 17
+    },
+    "milia": {
+      "precision": 0.4706,
+      "recall": 0.1818,
+      "f1": 0.2623,
+      "auc_roc": 0.98,
+      "support": 44,
+      "tp": 8,
+      "fp": 9,
+      "fn": 36
+    },
+    "molluscum_contagiosum": {
+      "precision": 0.1429,
+      "recall": 0.8421,
+      "f1": 0.2443,
+      "auc_roc": 0.9964,
+      "support": 19,
+      "tp": 16,
+      "fp": 96,
+      "fn": 3
+    },
+    "morphea": {
+      "precision": 0.0511,
+      "recall": 0.8889,
+      "f1": 0.0967,
+      "auc_roc": 0.9838,
+      "support": 18,
+      "tp": 16,
+      "fp": 297,
+      "fn": 2
+    },
+    "mucha_habermann_disease": {
+      "precision": 0.0149,
+      "recall": 0.9091,
+      "f1": 0.0292,
+      "auc_roc": 0.9963,
+      "support": 11,
+      "tp": 10,
+      "fp": 663,
+      "fn": 1
+    },
+    "mucous_membrane_psoriasis": {
+      "precision": 0.2745,
+      "recall": 1.0,
+      "f1": 0.4308,
+      "auc_roc": 1.0,
+      "support": 14,
+      "tp": 14,
+      "fp": 37,
+      "fn": 0
+    },
+    "myxoid_cyst": {
+      "precision": 0.8437,
+      "recall": 0.4737,
+      "f1": 0.6067,
+      "auc_roc": 0.9964,
+      "support": 57,
+      "tp": 27,
+      "fp": 5,
+      "fn": 30
+    },
+    "nail_dystrophy": {
+      "precision": 0.4583,
+      "recall": 0.275,
+      "f1": 0.3437,
+      "auc_roc": 0.9957,
+      "support": 40,
+      "tp": 11,
+      "fp": 13,
+      "fn": 29
+    },
+    "nail_nevus": {
+      "precision": 0.2692,
+      "recall": 1.0,
+      "f1": 0.4242,
+      "auc_roc": 0.9999,
+      "support": 14,
+      "tp": 14,
+      "fp": 38,
+      "fn": 0
+    },
+    "nail_psoriasis": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.9936,
+      "support": 58,
+      "tp": 0,
+      "fp": 1,
+      "fn": 58
+    },
+    "nail_ridging": {
+      "precision": 0.2727,
+      "recall": 0.9231,
+      "f1": 0.4211,
+      "auc_roc": 0.9997,
+      "support": 13,
+      "tp": 12,
+      "fp": 32,
+      "fn": 1
+    },
+    "neurodermatitis": {
+      "precision": 0.2727,
+      "recall": 0.1429,
+      "f1": 0.1875,
+      "auc_roc": 0.9777,
+      "support": 21,
+      "tp": 3,
+      "fp": 8,
+      "fn": 18
+    },
+    "neurofibroma": {
+      "precision": 0.6429,
+      "recall": 0.1636,
+      "f1": 0.2609,
+      "auc_roc": 0.9746,
+      "support": 55,
+      "tp": 9,
+      "fp": 5,
+      "fn": 46
+    },
+    "neurotic_excoriations": {
+      "precision": 0.2292,
+      "recall": 0.9167,
+      "f1": 0.3667,
+      "auc_roc": 0.9953,
+      "support": 12,
+      "tp": 11,
+      "fp": 37,
+      "fn": 1
+    },
+    "nevus_comedonicus": {
+      "precision": 0.1075,
+      "recall": 1.0,
+      "f1": 0.1942,
+      "auc_roc": 1.0,
+      "support": 10,
+      "tp": 10,
+      "fp": 83,
+      "fn": 0
+    },
+    "nevus_incipiens": {
+      "precision": 0.4138,
+      "recall": 0.2,
+      "f1": 0.2697,
+      "auc_roc": 0.9163,
+      "support": 60,
+      "tp": 12,
+      "fp": 17,
+      "fn": 48
+    },
+    "nevus_sebaceous_of_jadassohn": {
+      "precision": 0.5417,
+      "recall": 0.3023,
+      "f1": 0.3881,
+      "auc_roc": 0.9496,
+      "support": 43,
+      "tp": 13,
+      "fp": 11,
+      "fn": 30
+    },
+    "nevus_spilus": {
+      "precision": 0.0363,
+      "recall": 0.4231,
+      "f1": 0.0669,
+      "auc_roc": 0.9424,
+      "support": 26,
+      "tp": 11,
+      "fp": 292,
+      "fn": 15
+    },
+    "nummular_eczema": {
+      "precision": 0.5455,
+      "recall": 0.1364,
+      "f1": 0.2182,
+      "auc_roc": 0.936,
+      "support": 44,
+      "tp": 6,
+      "fp": 5,
+      "fn": 38
+    },
+    "onychogryphosis": {
+      "precision": 0.5556,
+      "recall": 1.0,
+      "f1": 0.7143,
+      "auc_roc": 1.0,
+      "support": 15,
+      "tp": 15,
+      "fp": 12,
+      "fn": 0
+    },
+    "onycholysis": {
+      "precision": 0.875,
+      "recall": 0.14,
+      "f1": 0.2414,
+      "auc_roc": 0.9945,
+      "support": 50,
+      "tp": 7,
+      "fp": 1,
+      "fn": 43
+    },
+    "onychomycosis": {
+      "precision": 0.8571,
+      "recall": 0.1,
+      "f1": 0.1791,
+      "auc_roc": 0.9941,
+      "support": 60,
+      "tp": 6,
+      "fp": 1,
+      "fn": 54
+    },
+    "onychoschizia": {
+      "precision": 0.4848,
+      "recall": 0.64,
+      "f1": 0.5517,
+      "auc_roc": 0.9974,
+      "support": 25,
+      "tp": 16,
+      "fp": 17,
+      "fn": 9
+    },
+    "paronychia": {
+      "precision": 0.4324,
+      "recall": 0.6667,
+      "f1": 0.5246,
+      "auc_roc": 0.9975,
+      "support": 24,
+      "tp": 16,
+      "fp": 21,
+      "fn": 8
+    },
+    "pearl_penile_papules": {
+      "precision": 0.5455,
+      "recall": 1.0,
+      "f1": 0.7059,
+      "auc_roc": 1.0,
+      "support": 12,
+      "tp": 12,
+      "fp": 10,
+      "fn": 0
+    },
+    "perioral_dermatitis": {
+      "precision": 0.6552,
+      "recall": 0.3167,
+      "f1": 0.427,
+      "auc_roc": 0.9914,
+      "support": 60,
+      "tp": 19,
+      "fp": 10,
+      "fn": 41
+    },
+    "pincer_nail_syndrome": {
+      "precision": 0.48,
+      "recall": 0.8571,
+      "f1": 0.6154,
+      "auc_roc": 0.9995,
+      "support": 14,
+      "tp": 12,
+      "fp": 13,
+      "fn": 2
+    },
+    "pitted_keratolysis": {
+      "precision": 0.8333,
+      "recall": 0.8333,
+      "f1": 0.8333,
+      "auc_roc": 0.9955,
+      "support": 24,
+      "tp": 20,
+      "fp": 4,
+      "fn": 4
+    },
+    "pityriasis_alba": {
+      "precision": 0.234,
+      "recall": 1.0,
+      "f1": 0.3793,
+      "auc_roc": 0.9999,
+      "support": 11,
+      "tp": 11,
+      "fp": 36,
+      "fn": 0
+    },
+    "pityriasis_rosea": {
+      "precision": 1.0,
+      "recall": 0.0294,
+      "f1": 0.0571,
+      "auc_roc": 0.9343,
+      "support": 34,
+      "tp": 1,
+      "fp": 0,
+      "fn": 33
+    },
+    "pityrosporum_folliculitis": {
+      "precision": 0.4615,
+      "recall": 0.1,
+      "f1": 0.1644,
+      "auc_roc": 0.9744,
+      "support": 60,
+      "tp": 6,
+      "fp": 7,
+      "fn": 54
+    },
+    "poikiloderma_atrophicans_vasculare": {
+      "precision": 0.0949,
+      "recall": 0.9286,
+      "f1": 0.1722,
+      "auc_roc": 0.9872,
+      "support": 14,
+      "tp": 13,
+      "fp": 124,
+      "fn": 1
+    },
+    "pomade_acne": {
+      "precision": 0.1429,
+      "recall": 1.0,
+      "f1": 0.25,
+      "auc_roc": 1.0,
+      "support": 11,
+      "tp": 11,
+      "fp": 66,
+      "fn": 0
+    },
+    "pseudofolliculitis_barbae": {
+      "precision": 0.2118,
+      "recall": 0.72,
+      "f1": 0.3273,
+      "auc_roc": 0.9966,
+      "support": 25,
+      "tp": 18,
+      "fp": 67,
+      "fn": 7
+    },
+    "pseudorhinophyma": {
+      "precision": 0.2234,
+      "recall": 0.913,
+      "f1": 0.359,
+      "auc_roc": 0.998,
+      "support": 23,
+      "tp": 21,
+      "fp": 73,
+      "fn": 2
+    },
+    "psoriasis": {
+      "precision": 0.8889,
+      "recall": 0.1333,
+      "f1": 0.2319,
+      "auc_roc": 0.9854,
+      "support": 60,
+      "tp": 8,
+      "fp": 1,
+      "fn": 52
+    },
+    "pustular_psoriasis": {
+      "precision": 0.8125,
+      "recall": 0.2453,
+      "f1": 0.3768,
+      "auc_roc": 0.9838,
+      "support": 53,
+      "tp": 13,
+      "fp": 3,
+      "fn": 40
+    },
+    "pyoderma_gangrenosum": {
+      "precision": 0.28,
+      "recall": 0.8235,
+      "f1": 0.4179,
+      "auc_roc": 0.9959,
+      "support": 17,
+      "tp": 14,
+      "fp": 36,
+      "fn": 3
+    },
+    "pyogenic_granuloma": {
+      "precision": 0.5,
+      "recall": 0.05,
+      "f1": 0.0909,
+      "auc_roc": 0.9284,
+      "support": 60,
+      "tp": 3,
+      "fp": 3,
+      "fn": 57
+    },
+    "racquet_nail": {
+      "precision": 0.3488,
+      "recall": 1.0,
+      "f1": 0.5172,
+      "auc_roc": 1.0,
+      "support": 15,
+      "tp": 15,
+      "fp": 28,
+      "fn": 0
+    },
+    "radiodermatitis": {
+      "precision": 0.4118,
+      "recall": 0.1892,
+      "f1": 0.2593,
+      "auc_roc": 0.9631,
+      "support": 37,
+      "tp": 7,
+      "fp": 10,
+      "fn": 30
+    },
+    "rhinophyma": {
+      "precision": 0.5333,
+      "recall": 0.1333,
+      "f1": 0.2133,
+      "auc_roc": 0.994,
+      "support": 60,
+      "tp": 8,
+      "fp": 7,
+      "fn": 52
+    },
+    "rosacea": {
+      "precision": 0.4054,
+      "recall": 0.25,
+      "f1": 0.3093,
+      "auc_roc": 0.9893,
+      "support": 60,
+      "tp": 15,
+      "fp": 22,
+      "fn": 45
+    },
+    "scalp_psoriasis": {
+      "precision": 0.6,
+      "recall": 0.375,
+      "f1": 0.4615,
+      "auc_roc": 0.9973,
+      "support": 32,
+      "tp": 12,
+      "fp": 8,
+      "fn": 20
+    },
+    "scar": {
+      "precision": 1.0,
+      "recall": 0.0172,
+      "f1": 0.0339,
+      "auc_roc": 0.758,
+      "support": 58,
+      "tp": 1,
+      "fp": 0,
+      "fn": 57
+    },
+    "scarring_alopecia": {
+      "precision": 0.1444,
+      "recall": 1.0,
+      "f1": 0.2524,
+      "auc_roc": 0.9999,
+      "support": 13,
+      "tp": 13,
+      "fp": 77,
+      "fn": 0
+    },
+    "schamberg's_disease": {
+      "precision": 0.022,
+      "recall": 0.9286,
+      "f1": 0.0429,
+      "auc_roc": 0.9951,
+      "support": 14,
+      "tp": 13,
+      "fp": 579,
+      "fn": 1
+    },
+    "sebaceous_gland_hyperplasia": {
+      "precision": 1.0,
+      "recall": 0.05,
+      "f1": 0.0952,
+      "auc_roc": 0.9782,
+      "support": 60,
+      "tp": 3,
+      "fp": 0,
+      "fn": 57
+    },
+    "seborrheic_dermatitis": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.8857,
+      "support": 60,
+      "tp": 0,
+      "fp": 0,
+      "fn": 60
+    },
+    "seborrheic_keratosis": {
+      "precision": 0.1529,
+      "recall": 0.4,
+      "f1": 0.2212,
+      "auc_roc": 0.8949,
+      "support": 60,
+      "tp": 24,
+      "fp": 133,
+      "fn": 36
+    },
+    "skin_tag": {
+      "precision": 0.9,
+      "recall": 0.15,
+      "f1": 0.2571,
+      "auc_roc": 0.9287,
+      "support": 60,
+      "tp": 9,
+      "fp": 1,
+      "fn": 51
+    },
+    "solar_lentigo": {
+      "precision": 0.1633,
+      "recall": 0.6667,
+      "f1": 0.2623,
+      "auc_roc": 0.9945,
+      "support": 12,
+      "tp": 8,
+      "fp": 41,
+      "fn": 4
+    },
+    "stasis_dermatitis": {
+      "precision": 0.4762,
+      "recall": 0.6667,
+      "f1": 0.5556,
+      "auc_roc": 0.9954,
+      "support": 60,
+      "tp": 40,
+      "fp": 44,
+      "fn": 20
+    },
+    "stasis_edema": {
+      "precision": 0.7941,
+      "recall": 0.45,
+      "f1": 0.5745,
+      "auc_roc": 0.9901,
+      "support": 60,
+      "tp": 27,
+      "fp": 7,
+      "fn": 33
+    },
+    "stasis_ulcer": {
+      "precision": 0.75,
+      "recall": 0.2,
+      "f1": 0.3158,
+      "auc_roc": 0.9962,
+      "support": 60,
+      "tp": 12,
+      "fp": 4,
+      "fn": 48
+    },
+    "steroid_acne": {
+      "precision": 0.5417,
+      "recall": 0.325,
+      "f1": 0.4062,
+      "auc_roc": 0.9913,
+      "support": 40,
+      "tp": 13,
+      "fp": 11,
+      "fn": 27
+    },
+    "steroid_striae": {
+      "precision": 0.5652,
+      "recall": 0.9286,
+      "f1": 0.7027,
+      "auc_roc": 0.9969,
+      "support": 14,
+      "tp": 13,
+      "fp": 10,
+      "fn": 1
+    },
+    "steroid_use_abusemisuse_dermatitis": {
+      "precision": 0.4545,
+      "recall": 0.3333,
+      "f1": 0.3846,
+      "auc_roc": 0.9892,
+      "support": 60,
+      "tp": 20,
+      "fp": 24,
+      "fn": 40
+    },
+    "stomatitis": {
+      "precision": 0.2424,
+      "recall": 0.8,
+      "f1": 0.3721,
+      "auc_roc": 0.9999,
+      "support": 10,
+      "tp": 8,
+      "fp": 25,
+      "fn": 2
+    },
+    "strawberry_hemangioma": {
+      "precision": 0.2683,
+      "recall": 1.0,
+      "f1": 0.4231,
+      "auc_roc": 1.0,
+      "support": 11,
+      "tp": 11,
+      "fp": 30,
+      "fn": 0
+    },
+    "striae": {
+      "precision": 0.439,
+      "recall": 0.6923,
+      "f1": 0.5373,
+      "auc_roc": 0.9994,
+      "support": 26,
+      "tp": 18,
+      "fp": 23,
+      "fn": 8
+    },
+    "subungual_hematoma": {
+      "precision": 0.3091,
+      "recall": 1.0,
+      "f1": 0.4722,
+      "auc_roc": 1.0,
+      "support": 17,
+      "tp": 17,
+      "fp": 38,
+      "fn": 0
+    },
+    "syringoma": {
+      "precision": 0.84,
+      "recall": 0.4286,
+      "f1": 0.5676,
+      "auc_roc": 0.9959,
+      "support": 49,
+      "tp": 21,
+      "fp": 4,
+      "fn": 28
+    },
+    "terry's_nails": {
+      "precision": 0.4,
+      "recall": 0.8,
+      "f1": 0.5333,
+      "auc_roc": 0.9997,
+      "support": 10,
+      "tp": 8,
+      "fp": 12,
+      "fn": 2
+    },
+    "tinea_corporis": {
+      "precision": 0.3043,
+      "recall": 0.1167,
+      "f1": 0.1687,
+      "auc_roc": 0.8767,
+      "support": 60,
+      "tp": 7,
+      "fp": 16,
+      "fn": 53
+    },
+    "tinea_cruris": {
+      "precision": 0.3621,
+      "recall": 0.7,
+      "f1": 0.4773,
+      "auc_roc": 0.9965,
+      "support": 30,
+      "tp": 21,
+      "fp": 37,
+      "fn": 9
+    },
+    "tinea_faciale": {
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "auc_roc": 0.97,
+      "support": 60,
+      "tp": 0,
+      "fp": 0,
+      "fn": 60
+    },
+    "tinea_manus": {
+      "precision": 0.6957,
+      "recall": 0.2667,
+      "f1": 0.3855,
+      "auc_roc": 0.9948,
+      "support": 60,
+      "tp": 16,
+      "fp": 7,
+      "fn": 44
+    },
+    "tinea_pedis": {
+      "precision": 1.0,
+      "recall": 0.1333,
+      "f1": 0.2353,
+      "auc_roc": 0.9912,
+      "support": 60,
+      "tp": 8,
+      "fp": 0,
+      "fn": 52
+    },
+    "tinea_versicolor": {
+      "precision": 1.0,
+      "recall": 0.1,
+      "f1": 0.1818,
+      "auc_roc": 0.9675,
+      "support": 60,
+      "tp": 6,
+      "fp": 0,
+      "fn": 54
+    },
+    "toe_deformity": {
+      "precision": 0.4848,
+      "recall": 0.9412,
+      "f1": 0.64,
+      "auc_roc": 0.999,
+      "support": 17,
+      "tp": 16,
+      "fp": 17,
+      "fn": 1
+    },
+    "trichilemmal_cyst": {
+      "precision": 0.1707,
+      "recall": 1.0,
+      "f1": 0.2917,
+      "auc_roc": 1.0,
+      "support": 14,
+      "tp": 14,
+      "fp": 68,
+      "fn": 0
+    },
+    "trichofolliculoma": {
+      "precision": 0.1848,
+      "recall": 0.9444,
+      "f1": 0.3091,
+      "auc_roc": 0.9998,
+      "support": 18,
+      "tp": 17,
+      "fp": 75,
+      "fn": 1
+    },
+    "trichostasis_spinulosa": {
+      "precision": 0.1463,
+      "recall": 1.0,
+      "f1": 0.2553,
+      "auc_roc": 0.9998,
+      "support": 12,
+      "tp": 12,
+      "fp": 70,
+      "fn": 0
+    },
+    "ulcer": {
+      "precision": 0.1827,
+      "recall": 0.8261,
+      "f1": 0.2992,
+      "auc_roc": 0.9906,
+      "support": 23,
+      "tp": 19,
+      "fp": 85,
+      "fn": 4
+    },
+    "urticaria": {
+      "precision": 0.1837,
+      "recall": 0.8182,
+      "f1": 0.3,
+      "auc_roc": 0.9656,
+      "support": 11,
+      "tp": 9,
+      "fp": 40,
+      "fn": 2
+    },
+    "varicella": {
+      "precision": 0.12,
+      "recall": 0.5455,
+      "f1": 0.1967,
+      "auc_roc": 0.848,
+      "support": 11,
+      "tp": 6,
+      "fp": 44,
+      "fn": 5
+    },
+    "verruca_vulgaris": {
+      "precision": 0.1765,
+      "recall": 0.5217,
+      "f1": 0.2637,
+      "auc_roc": 0.9927,
+      "support": 23,
+      "tp": 12,
+      "fp": 56,
+      "fn": 11
+    },
+    "vitiligo": {
+      "precision": 0.4074,
+      "recall": 0.9167,
+      "f1": 0.5641,
+      "auc_roc": 0.9999,
+      "support": 12,
+      "tp": 11,
+      "fp": 16,
+      "fn": 1
+    },
+    "wound_infection": {
+      "precision": 0.0531,
+      "recall": 0.8462,
+      "f1": 0.1,
+      "auc_roc": 0.9942,
+      "support": 13,
+      "tp": 11,
+      "fp": 196,
+      "fn": 2
+    },
+    "xerosis": {
+      "precision": 0.3934,
+      "recall": 0.6316,
+      "f1": 0.4848,
+      "auc_roc": 0.9961,
+      "support": 38,
+      "tp": 24,
+      "fp": 37,
+      "fn": 14
+    }
+  },
+  "fitzpatrick_bias_audit": {
+    "fitzpatrick_type_1": {
+      "accuracy": 0,
+      "correct": 0,
+      "total": 0
+    },
+    "fitzpatrick_type_2": {
+      "accuracy": 0,
+      "correct": 0,
+      "total": 0
+    },
+    "fitzpatrick_type_3": {
+      "accuracy": 0,
+      "correct": 0,
+      "total": 0
+    },
+    "fitzpatrick_type_4": {
+      "accuracy": 0,
+      "correct": 0,
+      "total": 0
+    },
+    "fitzpatrick_type_5": {
+      "accuracy": 0,
+      "correct": 0,
+      "total": 0
+    },
+    "fitzpatrick_type_6": {
+      "accuracy": 0,
+      "correct": 0,
+      "total": 0
+    },
+    "bias_gap": 0,
+    "status": "PASS"
+  }
+}

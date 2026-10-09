@@ -1,0 +1,8 @@
+{
+  "total_ingested_interactions": 0,
+  "gold_standard_corrections": 0,
+  "current_buffer_count": 0,
+  "total_retraining_cycles": 0,
+  "last_retraining_timestamp": null,
+  "model_version": "GeoSick-v1.2-Custom"
+}

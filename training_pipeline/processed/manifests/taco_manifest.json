@@ -1,0 +1,8 @@
+{
+  "dataset": "TACO",
+  "source": "https://github.com/pedropro/TACO",
+  "license": "CC-BY-4.0",
+  "total_images": 447,
+  "local_path": "training_pipeline/data/real_environmental/taco",
+  "status": "verified_and_extracted"
+}

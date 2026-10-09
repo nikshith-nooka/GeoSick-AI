@@ -15,7 +15,26 @@ export type Page =
   | 'activity-history'
   | 'profile'
   | 'admin-dashboard'
-  | 'water-log';
+  | 'water-log'
+  | 'ai-flywheel'
+  | 'municipal-tickets'
+  | 'privacy-policy';
+
+export interface MunicipalTicket {
+  id: string;
+  ticket_id: string;
+  user_phone?: string;
+  hazard_type: string;
+  severity: 'Priority 1 (High Vector Risk)' | 'Priority 2 (Moderate Risk)' | 'Priority 3 (Advisory)';
+  status: 'Dispatched' | 'In-Progress' | 'Resolved';
+  assigned_team: string;
+  coordinates: string;
+  summary: string;
+  created_at: string;
+  updated_at?: string;
+  resolution_notes?: string;
+  image_url?: string;
+}
 
 export interface User {
   id?: string;
@@ -52,10 +71,63 @@ export interface Disease {
   precautions: string[];
 }
 
+export interface ImageQualityReport {
+  isLowQuality: boolean;
+  brightness: number; // 0-255 scale
+  contrast: number; // 0-100 scale
+  issue?: 'underexposed_dark' | 'overexposed_bright' | 'low_contrast' | 'blur_suspected' | 'none';
+  suggestion?: string;
+}
+
+export interface SecondaryHazard {
+  hazard: string;
+  description: string;
+  confidence: number;
+  category: string;
+}
+
+export interface TamperProofExif {
+  timestamp: string;
+  latitude: number;
+  longitude: number;
+  deviceHash: string;
+  sha256Checksum: string;
+}
+
+export interface ClinicalCitation {
+  source: string;
+  guideline: string;
+  url?: string;
+  year?: string;
+}
+
+export interface RecommendedLabTest {
+  testName: string;
+  rationale: string;
+  urgency: 'Stat / Immediate (< 12h)' | 'Urgent (within 24-48h)' | 'Routine Diagnostic';
+  fastingRequired: boolean;
+}
+
+export interface RedFlagEmergency {
+  isEmergency: boolean;
+  redFlagsDetected: string[];
+  emergencyProtocol: string;
+  emergencyNumbers: { label: string; number: string }[];
+}
+
 export interface AnalysisResult {
   hazards: Hazard[];
   diseases: Disease[];
   summary: string;
+  isCleanBaseline?: boolean;
+  imageQuality?: ImageQualityReport;
+  secondaryHazard?: SecondaryHazard;
+  tamperProof?: TamperProofExif;
+  differentialProbabilities?: { label: string; confidence: number }[];
+  confidenceScore?: number;
+  lowConfidenceWarning?: boolean;
+  disclaimer?: string;
+  urgencyLevel?: 'Emergency' | 'Urgent' | 'Routine';
 }
 
 export interface LocationAnalysisResult extends AnalysisResult {
@@ -85,8 +157,16 @@ export interface PrescriptionAnalysisResult {
     medicines: {
         name: string;
         dosage: string;
+        frequency?: string;
+        duration?: string;
+        isUserVerified?: boolean;
     }[];
     precautions: string[];
+    clinicalCitations?: ClinicalCitation[];
+    verifiedByUser?: boolean;
+    confidenceScore?: number;
+    lowConfidenceWarning?: boolean;
+    disclaimer?: string;
     videos: {
         title: string;
         url: string;
@@ -104,6 +184,8 @@ export interface HealthForecast {
     summary: string;
     riskFactors: RiskFactor[];
     recommendations: string[];
+    confidenceScore?: number;
+    disclaimer?: string;
 }
 
 export interface MentalHealthResult {
@@ -117,14 +199,25 @@ export interface MentalHealthResult {
         description: string;
     }[];
     recommendation: string;
+    confidenceScore?: number;
+    lowConfidenceWarning?: boolean;
+    disclaimer?: string;
+    isEmergency?: boolean;
+    crisisHelpline?: string;
 }
 
 export interface SymptomAnalysisResult {
     summary: string;
     triageRecommendation: string;
+    urgencyLevel: 'Emergency' | 'Urgent' | 'Routine';
+    redFlagEmergency?: RedFlagEmergency;
+    recommendedLabTests?: RecommendedLabTest[];
+    clinicalCitations?: ClinicalCitation[];
+    skinToneVarianceNotice?: string;
     potentialConditions: {
         name: string;
         description: string;
+        differentialConfidence?: number;
     }[];
     nextSteps: string[];
     disclaimer: string;

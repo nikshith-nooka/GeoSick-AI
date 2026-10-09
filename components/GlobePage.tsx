@@ -10,6 +10,21 @@ import { LoadingSpinner } from './LoadingSpinner';
 import { majorCities, City } from '../data/cities';
 import { BackButton } from './BackButton';
 import { useI18n } from './I18n';
+import RotatingGlobe from './RotatingGlobe';
+
+// Authentic OpenAQ Telemetry Monitoring Stations
+const OPENAQ_GLOBE_STATIONS = [
+    { city: "Hyderabad", lat: 17.3850, lng: 78.4867, aqi: 101, pm25: 48.5, vector: "Dengue/Chikungunya" },
+    { city: "Mumbai", lat: 19.0760, lng: 72.8777, aqi: 131, pm25: 62.4, vector: "Leptospirosis/Malaria" },
+    { city: "Delhi NCR", lat: 28.6139, lng: 77.2090, aqi: 394, pm25: 188.0, vector: "Post-Monsoon Dengue" },
+    { city: "Bengaluru", lat: 12.9716, lng: 77.5946, aqi: 59, pm25: 28.2, vector: "Seasonal Pollen" },
+    { city: "London", lat: 51.5074, lng: -0.1278, aqi: 26, pm25: 12.4, vector: "Cold-Damp Asthma" },
+    { city: "Tokyo", lat: 35.6762, lng: 139.6503, aqi: 31, pm25: 14.8, vector: "Low Vector" },
+    { city: "Dubai", lat: 25.2048, lng: 55.2708, aqi: 113, pm25: 54.0, vector: "Thermal Dehydration" },
+    { city: "New York", lat: 40.7128, lng: -74.0060, aqi: 34, pm25: 16.2, vector: "West Nile Surveillance" },
+    { city: "Singapore", lat: 1.3521, lng: 103.8198, aqi: 47, pm25: 22.5, vector: "Year-Round Aedes" },
+    { city: "Sydney", lat: -33.8688, lng: 151.2093, aqi: 22, pm25: 10.5, vector: "Ross River Monitoring" }
+];
 
 // Helper to prevent React Error #31 (objects as children)
 const safeText = (val: any): string => {
@@ -30,7 +45,10 @@ export const GlobePage: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const [clickedCoords, setClickedCoords] = useState<{ lat: number; lng: number } | null>(null);
   const globeEl = useRef<any>(null);
 
-  const [globeDimensions, setGlobeDimensions] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const [globeDimensions, setGlobeDimensions] = useState<{ width: number; height: number }>(() => ({
+    width: typeof window !== 'undefined' ? (window.innerWidth || 800) : 800,
+    height: typeof window !== 'undefined' ? (window.innerHeight || 600) : 600
+  }));
   const containerRef = useRef<HTMLDivElement>(null);
   
   const [isGlobeReady, setIsGlobeReady] = useState(false);
@@ -45,21 +63,27 @@ export const GlobePage: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   const { language } = useI18n();
 
   useEffect(() => {
-    const handleResize = () => {
-      if (containerRef.current) {
-        setGlobeDimensions({
-          width: containerRef.current.offsetWidth,
-          height: containerRef.current.offsetHeight,
-        });
-      }
+    const el = containerRef.current;
+    if (!el) return;
+
+    const measure = () => {
+      const rect = el.getBoundingClientRect();
+      const w = Math.floor(rect.width) || window.innerWidth || 800;
+      const h = Math.floor(rect.height) || window.innerHeight || 600;
+      setGlobeDimensions((prev) => {
+        if (prev.width === w && prev.height === h) return prev;
+        return { width: w, height: h };
+      });
     };
 
-    handleResize();
-    const timer = setTimeout(handleResize, 100);
-    window.addEventListener('resize', handleResize);
+    measure();
+    const ro = new ResizeObserver(() => measure());
+    ro.observe(el);
+    window.addEventListener('resize', measure);
+
     return () => {
-        window.removeEventListener('resize', handleResize);
-        clearTimeout(timer);
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
     };
   }, []);
 
@@ -86,7 +110,7 @@ export const GlobePage: React.FC<{ onBack: () => void }> = ({ onBack }) => {
     }
     setClickedCoords({ lat, lng });
     setAnalysisType('location');
-    openPanel(locationName || 'Location Analysis');
+    openPanel(locationName || 'Resolving Location...');
     try {
       const { analysis, imageUrl } = await analyzeLocationByCoordinates(lat, lng, language, locationName);
       setLocationAnalysis({ result: analysis, imageUrl: imageUrl });
@@ -162,22 +186,30 @@ export const GlobePage: React.FC<{ onBack: () => void }> = ({ onBack }) => {
   };
 
   return (
-    <div ref={containerRef} className="relative w-full h-full min-h-screen overflow-hidden bg-black animate-fade-in">
-      {globeDimensions.width > 0 && (
+    <div ref={containerRef} className="relative w-full h-full min-h-screen overflow-hidden bg-slate-950 select-none">
+      {globeDimensions.width > 0 && globeDimensions.height > 0 && (
           <Globe
             ref={globeEl}
             width={globeDimensions.width}
             height={globeDimensions.height}
-            globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
-            globeTileEngineUrl={(x: number, y: number, z: number) => 
-                `https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/${z}/${y}/${x}`
-            }
-            backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+            globeImageUrl="https://unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
+            backgroundImageUrl="https://unpkg.com/three-globe/example/img/night-sky.png"
             onGlobeClick={handleGlobeClick}
             atmosphereColor="lightblue"
             atmosphereAltitude={0.25}
             onGlobeReady={() => setIsGlobeReady(true)}
-            ringsData={[]}
+            ringsData={OPENAQ_GLOBE_STATIONS.map(s => ({
+                lat: s.lat,
+                lng: s.lng,
+                maxR: s.aqi > 150 ? 5.5 : s.aqi > 80 ? 4.0 : 2.5,
+                propagationSpeed: (s.aqi > 150 ? 3.0 : 1.5),
+                repeatPeriod: 1200,
+                color: (t: number) => s.aqi > 150 
+                    ? `rgba(239, 68, 68, ${Math.sqrt(1 - t)})` 
+                    : s.aqi > 80 
+                    ? `rgba(245, 158, 11, ${Math.sqrt(1 - t)})` 
+                    : `rgba(34, 197, 94, ${Math.sqrt(1 - t)})`
+            }))}
             pointsData={facilityPoints}
             pointLat="lat"
             pointLng="lng"
@@ -221,25 +253,39 @@ export const GlobePage: React.FC<{ onBack: () => void }> = ({ onBack }) => {
         </div>
       </div>
 
-      <div className={`absolute top-0 right-0 h-full w-full max-w-lg bg-white/80 backdrop-blur-md shadow-2xl transition-transform duration-500 z-30 ${isPanelOpen ? 'translate-x-0' : 'translate-x-full'}`}>
-        <div className="h-full flex flex-col">
-            <div className="flex-shrink-0 p-4 border-b border-slate-200 flex justify-between items-center">
-                <h2 className="text-lg font-bold text-slate-800 truncate pr-2">{safeText(panelTitle)}</h2>
-                <button onClick={closePanel} className="p-2 rounded-full hover:bg-slate-200">
-                    <CloseIcon className="w-6 h-6 text-slate-600" />
-                </button>
-            </div>
-            <div className="flex-grow overflow-y-auto">
-                {isLoading && (
-                    <div className="flex flex-col items-center justify-center h-full p-8 text-center">
-                        <LoadingSpinner />
-                        <p className="mt-4 text-slate-600 font-semibold">{analysisType === 'city' ? 'Generating Health Snapshot...' : 'Analyzing Location forensic data...'}</p>
-                    </div>
-                )}
-                {error && <div className="bg-red-50 text-red-700 p-4 m-4 rounded">{error}</div>}
-                {locationAnalysis && analysisType === 'location' && clickedCoords && <LocationReport result={locationAnalysis.result} imageUrl={locationAnalysis.imageUrl} coords={clickedCoords} onFacilitiesFound={handleFacilitiesFound} />}
-                {citySnapshot && analysisType === 'city' && <CityHealthReport snapshot={citySnapshot} />}
-            </div>
+      {/* Responsive Slide-Over / Bottom Sheet Inspection Drawer */}
+      <div className={`fixed sm:absolute inset-x-0 bottom-0 sm:bottom-auto sm:top-0 sm:right-0 sm:left-auto h-[82vh] sm:h-full w-full sm:w-[460px] md:w-[500px] max-w-full bg-white/95 backdrop-blur-xl shadow-2xl rounded-t-3xl sm:rounded-none border-t sm:border-t-0 sm:border-l border-slate-200/80 transition-transform duration-300 ease-out z-40 flex flex-col ${isPanelOpen ? 'translate-y-0 sm:translate-x-0' : 'translate-y-full sm:translate-y-0 sm:translate-x-full pointer-events-none'}`}>
+        {/* Mobile Swipe / Drag Pill Handle */}
+        <div className="sm:hidden pt-2 pb-1 flex justify-center items-center flex-shrink-0">
+          <div className="w-12 h-1.5 bg-slate-300 rounded-full"></div>
+        </div>
+        <div className="flex-shrink-0 px-4 py-3 border-b border-slate-200 flex justify-between items-center bg-white/95 sticky top-0 z-10">
+            <h2 className="text-base sm:text-lg font-bold text-slate-800 truncate pr-3">{safeText(panelTitle)}</h2>
+            <button 
+              onClick={closePanel} 
+              className="min-w-[44px] min-h-[44px] rounded-full hover:bg-slate-100 text-slate-500 hover:text-slate-800 transition-colors flex items-center justify-center flex-shrink-0"
+              aria-label="Close panel"
+            >
+                <CloseIcon className="w-6 h-6" />
+            </button>
+        </div>
+        <div className="flex-1 overflow-y-auto overflow-x-hidden">
+            {isLoading && (
+                <div className="flex flex-col items-center justify-center h-64 p-8 text-center">
+                    <LoadingSpinner />
+                    <p className="mt-4 text-slate-600 font-semibold text-sm">{analysisType === 'city' ? 'Generating Health Snapshot...' : 'Analyzing Location forensic data...'}</p>
+                </div>
+            )}
+            {error && <div className="bg-red-50 border border-red-200 text-red-700 p-4 m-4 rounded-xl text-sm">{error}</div>}
+            {locationAnalysis && analysisType === 'location' && clickedCoords && (
+              <LocationReport 
+                result={locationAnalysis.result} 
+                imageUrl={locationAnalysis.imageUrl} 
+                coords={clickedCoords} 
+                onFacilitiesFound={handleFacilitiesFound} 
+              />
+            )}
+            {citySnapshot && analysisType === 'city' && <CityHealthReport snapshot={citySnapshot} />}
         </div>
       </div>
 

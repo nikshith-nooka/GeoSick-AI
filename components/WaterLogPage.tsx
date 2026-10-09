@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import type { WaterLogSettings, WaterLogEntry } from '../types';
 import { BackButton } from './BackButton';
 import { GlassWaterIcon, BellIcon, ClockIcon } from './icons';
+import { EmptyState } from './EmptyState';
 
 interface WaterLogPageProps {
   onBack: () => void;
@@ -243,10 +244,13 @@ export const WaterLogPage: React.FC<WaterLogPageProps> = ({ onBack }) => {
                     <p className="text-sm text-slate-500">{new Date(entry.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</p>
                 </div>
             )) : (
-                <div className="text-center py-12 text-slate-500">
-                    <p>No water logged yet today.</p>
-                    <p className="text-sm">Click a button to add your first entry!</p>
-                </div>
+                <EmptyState
+                    icon="💧"
+                    title="No Water Logged Today"
+                    subtitle="Consistent hydration supports cellular metabolism and protects against heat stress. Log your first glass!"
+                    actionLabel="+ Log 250ml Glass"
+                    onAction={() => addWater(250)}
+                />
             )}
           </div>
         </div>

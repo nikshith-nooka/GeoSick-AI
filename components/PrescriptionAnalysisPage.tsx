@@ -7,6 +7,7 @@ import { ClipboardListIcon, ScanIcon, CloseIcon } from './icons';
 import { PrescriptionReport } from './PrescriptionReport';
 import { BackButton } from './BackButton';
 import { useI18n } from './I18n';
+import { SafetyDisclaimerBanner } from './SafetyDisclaimerBanner';
 
 interface PrescriptionAnalysisPageProps {
   onBack: () => void;
@@ -85,7 +86,11 @@ export const PrescriptionAnalysisPage: React.FC<PrescriptionAnalysisPageProps> =
             </p>
         </header>
 
-        <main className="w-full max-w-7xl mx-auto mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+        <div className="w-full max-w-7xl mx-auto mt-6">
+            <SafetyDisclaimerBanner featureName="Prescription Reader" />
+        </div>
+
+        <main className="w-full max-w-7xl mx-auto mt-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             <div className="animate-fade-in-up">
                  <div className="bg-white p-6 rounded-lg shadow-sm border border-slate-200/80 h-full flex flex-col">
                     <h2 className="text-xl font-bold text-slate-800 mb-4">Upload Prescription Image</h2>

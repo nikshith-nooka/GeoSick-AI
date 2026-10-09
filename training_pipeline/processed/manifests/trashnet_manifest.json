@@ -1,0 +1,17 @@
+{
+  "dataset": "TrashNet",
+  "source": "https://github.com/garythung/trashnet",
+  "license": "MIT",
+  "total_images": 2527,
+  "categories": {
+    "paper": 594,
+    "metal": 410,
+    "cardboard": 403,
+    "trash": 137,
+    "__MACOSX": 0,
+    "glass": 501,
+    "plastic": 482
+  },
+  "local_path": "training_pipeline/data/real_environmental/trashnet",
+  "status": "verified_and_extracted"
+}

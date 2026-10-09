@@ -95,33 +95,35 @@ export const LocationReport: React.FC<LocationReportProps> = ({ result, imageUrl
   };
 
   return (
-    <div className="p-4 sm:p-6 space-y-6 animate-fade-in">
-        <div className="space-y-4">
-            {imageUrl && <img src={imageUrl} alt={`Satellite view of ${result.locationName}`} className="rounded-lg w-full aspect-video object-cover border border-slate-200" />}
-            <h3 className="text-2xl font-bold text-slate-800 flex items-center gap-2">
-                <MapPinIcon className="w-7 h-7 text-blue-500"/> 
-                {result.locationName}
+    <div className="p-4 sm:p-5 space-y-5 animate-fade-in overflow-hidden">
+        <div className="space-y-3">
+            {imageUrl && <img src={imageUrl} alt={`Satellite view of ${result.locationName}`} className="rounded-xl w-full aspect-video object-cover border border-slate-200 shadow-sm" />}
+            <h3 className="text-xl font-bold text-slate-800 flex items-start gap-2 break-words">
+                <MapPinIcon className="w-6 h-6 text-blue-500 flex-shrink-0 mt-0.5"/> 
+                <span className="break-words leading-tight">{result.locationName}</span>
             </h3>
         </div>
 
-        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+        <div className="bg-blue-50/90 border border-blue-200 rounded-xl p-4">
              <div className="flex items-start">
-                <SummaryIcon className="w-6 h-6 mr-3 mt-1 text-blue-500 flex-shrink-0" />
+                <SummaryIcon className="w-5 h-5 mr-2.5 mt-0.5 text-blue-500 flex-shrink-0" />
                 <div>
-                    <h4 className="font-semibold text-base text-blue-800">Overall Assessment</h4>
-                    <p className="mt-1 text-sm text-blue-700">{result.summary}</p>
+                    <h4 className="font-semibold text-sm text-blue-800">Overall Assessment</h4>
+                    <p className="mt-1 text-xs sm:text-sm text-blue-700 leading-relaxed break-words">{result.summary}</p>
                 </div>
             </div>
         </div>
         
-        <div className="space-y-6">
+        <div className="space-y-5">
             <div>
-                <h4 className="text-lg font-bold text-slate-800 mb-3 flex items-center gap-2"><HazardIcon className="w-6 h-6 text-rose-500"/>Identified Hazards</h4>
+                <h4 className="text-base font-bold text-slate-800 mb-2.5 flex items-center gap-2">
+                    <HazardIcon className="w-5 h-5 text-rose-500 flex-shrink-0"/>Identified Hazards
+                </h4>
                 <div className="space-y-2">
                     {result.hazards.map((h, index) => (
-                        <div key={index} className="bg-rose-50/70 p-3 rounded-md border-l-4 border-rose-500 flex items-start gap-3">
-                           <strong className="font-semibold text-sm text-rose-800">{h.hazard}:</strong> 
-                           <span className="text-sm text-rose-700">{h.description}</span>
+                        <div key={index} className="bg-rose-50/80 p-3 rounded-xl border-l-4 border-rose-500 flex flex-col gap-1">
+                           <strong className="font-semibold text-xs sm:text-sm text-rose-900 break-words">{h.hazard}</strong> 
+                           <span className="text-xs sm:text-sm text-rose-700 leading-relaxed break-words">{h.description}</span>
                         </div>
                     ))}
                 </div>

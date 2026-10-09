@@ -7,6 +7,7 @@ import { SymptomReportSkeleton } from './SymptomReportSkeleton';
 import { BackButton } from './BackButton';
 import { useI18n } from './I18n';
 import { supportedLanguages } from '../data/translations';
+import { SafetyDisclaimerBanner } from './SafetyDisclaimerBanner';
 
 interface SymptomCheckerPageProps {
   onBack: () => void;
@@ -140,15 +141,7 @@ export const SymptomCheckerPage: React.FC<SymptomCheckerPageProps> = ({ onBack, 
             </div>
             
             <main className="w-full max-w-3xl mx-auto mt-8">
-                 <div className="bg-yellow-50 border-l-4 border-yellow-400 text-yellow-800 p-4 mb-6 rounded-r-lg" role="alert">
-                    <div className="flex items-center">
-                        <HazardIcon className="w-6 h-6 text-yellow-500 mr-3 flex-shrink-0"/>
-                        <div>
-                            <p className="font-bold">{t('informational_purposes_only')}</p>
-                            <p className="text-sm">{t('symptom_disclaimer_short')}</p>
-                        </div>
-                    </div>
-                </div>
+                 <SafetyDisclaimerBanner featureName="Symptom Checker" />
 
                 {status !== 'success' && (
                      <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-sm border border-slate-200/80">

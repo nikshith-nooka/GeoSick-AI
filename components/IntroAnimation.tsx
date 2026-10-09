@@ -50,6 +50,13 @@ export const IntroAnimation: React.FC<IntroAnimationProps> = ({ onComplete }) =>
             className={`fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black transition-opacity duration-700 overflow-hidden ${stage === 'fading' ? 'opacity-0' : 'opacity-100'}`}
             style={{ background: starfieldBg }}
         >
+            <button
+                onClick={onComplete}
+                className="absolute top-6 right-6 z-[110] bg-white/20 hover:bg-white/40 text-white text-xs font-semibold px-4 py-2 rounded-full backdrop-blur-md border border-white/30 transition-all duration-200"
+            >
+                Skip Intro →
+            </button>
+
             {/* Stage 1: Chaos */}
             <div className={`absolute inset-0 transition-opacity duration-500 ${!hasReached('conductor') ? 'opacity-100' : 'opacity-0'}`}>
                 {isVisible('chaos') && chaosParticles.map(p => <ChaosParticle key={p.id} style={p.style} />)}

@@ -6,6 +6,7 @@ import { MentalHealthReport } from './MentalHealthReport';
 import { LoadingSpinner } from './LoadingSpinner';
 import { BackButton } from './BackButton';
 import { useI18n } from './I18n';
+import { SafetyDisclaimerBanner } from './SafetyDisclaimerBanner';
 
 interface MentalHealthPageProps {
   onBack: () => void;
@@ -173,8 +174,12 @@ export const MentalHealthPage: React.FC<MentalHealthPageProps> = ({ onBack, onAn
                     <BrainCircuitIcon className="w-8 h-8 text-indigo-500" />
                     <h1 className="text-2xl font-bold text-slate-800 tracking-tight">{t('mind_check_header')}</h1>
                 </div>
+
+                <div className="mt-4">
+                    <SafetyDisclaimerBanner featureName="Mental Health & Well-being Screener" />
+                </div>
             </div>
-            <main className="w-full max-w-2xl mx-auto mt-8 flex-grow flex items-center justify-center">{renderContent()}</main>
+            <main className="w-full max-w-2xl mx-auto mt-6 flex-grow flex items-center justify-center">{renderContent()}</main>
         </div>
     );
 };
